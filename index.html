@@ -180,9 +180,9 @@
                 <form class="space-y-4 text-left">
                     <div>
                         <label class="block text-sm font-bold mb-2 text-textMuted">Work Email</label>
-                        <input type="email" class="w-full p-3 rounded bg-bgDark border border-gray-600 focus:border-accentBlue outline-none text-white" placeholder="name@publisher.com">
+                        <input id="emailInput" type="email" class="w-full p-3 rounded bg-bgDark border border-gray-600 focus:border-accentBlue outline-none text-white" placeholder="name@publisher.com">
                     </div>
-                    <button type="button" class="w-full py-3 bg-accentBlue text-bgDark font-bold rounded hover:bg-white transition-colors">
+                    <button type="button" onclick="handleRequestAccess()" class="w-full py-3 bg-accentBlue text-bgDark font-bold rounded hover:bg-white transition-colors">
                         Request Access
                     </button>
                 </form>
@@ -194,6 +194,21 @@
             </div>
         </div>
     </section>
+
+    <script>
+        function handleRequestAccess() {
+            const email = document.getElementById('emailInput').value;
+            if (!email) {
+                alert("Please enter your email address.");
+                return;
+            }
+            
+            const subject = "Pilot Program Inquiry";
+            const body = `Hi Agile Book Manufacturing Team,%0D%0A%0D%0AI am interested in the Q3 Pilot Program capacity for my publishing house.%0D%0A%0D%0AMy Email: ${email}%0D%0A%0D%0APlease follow up with next steps.`;
+            
+            window.location.href = `mailto:founder@agilebookmfg.com?subject=${subject}&body=${body}`;
+        }
+    </script>
 
 </body>
 </html>
